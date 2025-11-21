@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Daftar - Vinix7</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">
+        <img
+          src="gambar/logovinix7.png"
+          alt=""
+          style="width: 200px; margin-top: 10px"
+        />
+      </div>
+      <div class="actions">
+        <a href="masuk.html" class="btn-primary">Masuk</a>
+      </div>
+    </header>
+
+    <main class="auth-page">
+      <i class="fas fa-arrow-left auth-back-arrow" onclick="history.back()">
+        <a href="index.html"></a>
+      </i>
+
+      <div class="auth-box">
+        <h2>Daftar</h2>
+        <form class="auth-form">
+          <div class="row">
+            <input type="text" placeholder="Nama Depan" required />
+            <input type="text" placeholder="Nama Belakang" required />
+          </div>
+
+          <input type="email" placeholder="Masukkan Email" required />
+
+          <div class="row">
+            <input type="password" placeholder="Password" required />
+            <input type="password" placeholder="Confirm Password" required />
+          </div>
+
+          <a href="masuk.html" class="btn-secondary">Daftar</a>
+
+          <p class="link-alt">
+            atau<br />
+            Sudah Punya Akun? <a href="masuk.html">Masuk</a>
+          </p>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>
