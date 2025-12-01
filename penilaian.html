@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vinix7 - Penilaian Tugas</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <script>
+      function toggleDropdown() {
+        document.getElementById("profileDropdown").style.display =
+          document.getElementById("profileDropdown").style.display === "block"
+            ? "none"
+            : "block";
+      }
+
+      // Menutup dropdown jika user mengklik di luar area
+      window.onclick = function (event) {
+        if (
+          !event.target.matches(".profile-dropdown-container") &&
+          !event.target.matches(".user-profile") &&
+          !event.target.matches(".user-profile *")
+        ) {
+          var dropdowns = document.getElementsByClassName(
+            "profile-dropdown-content"
+          );
+          for (var i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.style.display === "block") {
+              openDropdown.style.display = "none";
+            }
+          }
+        }
+      };
+    </script>
+  </head>
+  <body class="dashboard-body">
+    <header class="dashboard-header">
+      <div class="logo-container">
+        <span class="logo-text">VINIX7</span>
+      </div>
+      <div class="header-icons">
+        <i class="fas fa-bell icon-btn"></i>
+
+        <div class="profile-dropdown-container" onclick="toggleDropdown()">
+
+            <div class="profile-dropdown-container" onclick="toggleDropdown()">
+              <div class="user-profile">
+                <span>Username</span>
+                <i class="fas fa-user-circle profile-icon"></i>
+              </div>
+
+              <div id="profileDropdown" class="profile-dropdown-content">
+                <a href="profile.html">My Profile</a>
+                <a href="masuk.html">Logout</a>
+              </div>
+            </div>
+          </div>
+
+          <div id="profileDropdown" class="profile-dropdown-content">
+            <a href="profile.html">My Profile</a>
+            <a href="masuk.html">Logout</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="dashboard-layout">
+      <aside class="sidebar">
+        <ul class="sidebar-nav">
+          <li>
+            <a href="dashboard.html" class="sidebar-item"
+              ><i class="fas fa-home"></i><span>Dashboard</span></a
+            >
+          </li>
+          <li>
+            <a href="kelas.html" class="sidebar-item"
+              ><i class="fas fa-list-ul"></i><span>Kelas</span></a
+            >
+          </li>
+          <li>
+            <a href="materi.html" class="sidebar-item"
+              ><i class="fas fa-book-open"></i><span>Materi</span></a
+            >
+          </li>
+          <li>
+            <a href="penilaian.html" class="sidebar-item active"
+              ><i class="fas fa-pencil-alt"></i><span>Penilaian</span></a
+            >
+          </li>
+        </ul>
+      </aside>
+
+      <main class="main-content">
+        <div class="assessment-card">
+          <div>
+            <h3>Analisis Kebutuhan Pengguna</h3>
+            <a
+              href="soal_analisis_kebutuhan.pdf"
+              download
+              class="question-link"
+            >
+              <i class="fas fa-flag"></i> Soal
+            </a>
+          </div>
+
+          <div class="btn-upload-wrapper">
+            <input
+              type="file"
+              id="uploadFile1"
+              style="display: none"
+              accept=".pdf,.doc,.docx,.zip"
+            />
+            <label for="uploadFile1" class="btn-upload">Upload</label>
+          </div>
+        </div>
+
+        <div class="assessment-card">
+          <div>
+            <h3>UI/UX</h3>
+            <a href="soal_uiux.pdf" download class="question-link">
+              <i class="fas fa-flag"></i> Soal
+            </a>
+          </div>
+
+          <div class="btn-upload-wrapper">
+            <input
+              type="file"
+              id="uploadFile2"
+              style="display: none"
+              accept=".pdf,.doc,.docx,.zip"
+            />
+            <label for="uploadFile2" class="btn-upload">Upload</label>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

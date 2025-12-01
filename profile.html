@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vinix7 - Data Diri</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <script>
+      function toggleDropdown() {
+        document.getElementById("profileDropdown").style.display =
+          document.getElementById("profileDropdown").style.display === "block"
+            ? "none"
+            : "block";
+      }
+
+      // Menutup dropdown jika user mengklik di luar area
+      window.onclick = function (event) {
+        if (
+          !event.target.matches(".profile-dropdown-container") &&
+          !event.target.matches(".user-profile") &&
+          !event.target.matches(".user-profile *")
+        ) {
+          var dropdowns = document.getElementsByClassName(
+            "profile-dropdown-content"
+          );
+          for (var i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.style.display === "block") {
+              openDropdown.style.display = "none";
+            }
+          }
+        }
+      };
+    </script>
+  </head>
+  <body class="dashboard-body">
+    <header class="dashboard-header">
+      <div class="logo-container">
+        <span class="logo-text">VINIX7</span>
+      </div>
+      <div class="header-icons">
+        <i class="fas fa-bell icon-btn"></i>
+        <div class="profile-dropdown-container">
+          <div class="user-profile">
+            <span>Username</span>
+            <i class="fas fa-user-circle profile-icon"></i>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="dashboard-layout">
+      <aside class="sidebar">
+        <ul class="sidebar-nav">
+          <li>
+            <a href="dashboard.html" class="sidebar-item"
+              ><i class="fas fa-home"></i><span>Dashboard</span></a
+            >
+          </li>
+          <li>
+            <a href="kelas.html" class="sidebar-item"
+              ><i class="fas fa-list-ul"></i><span>Kelas</span></a
+            >
+          </li>
+          <li>
+            <a href="materi.html" class="sidebar-item"
+              ><i class="fas fa-book-open"></i><span>Materi</span></a
+            >
+          </li>
+          <li>
+            <a href="penilaian.html" class="sidebar-item"
+              ><i class="fas fa-pencil-alt"></i><span>Penilaian</span></a
+            >
+          </li>
+        </ul>
+      </aside>
+
+      <main class="main-content">
+        <div class="profile-card">
+          <h2>Data Diri</h2>
+          <form action="dashboard.html" method="GET">
+            <div class="profile-form-layout">
+              <div class="profile-form-fields">
+                <div class="profile-field-group">
+                  <label for="nama">Nama</label>
+                  <input type="text" id="nama" value="Nama Pengguna" required />
+                </div>
+                <div class="profile-field-group">
+                  <label for="tempatlahir">Tempat Lahir</label>
+                  <input type="text" id="tempatlahir" />
+                </div>
+                <div class="profile-field-group">
+                  <label for="tgllahir">Tanggal Lahir</label>
+                  <input type="date" id="tgllahir" />
+                </div>
+                <div class="profile-field-group">
+                  <label for="alamat">Alamat</label>
+                  <input type="text" id="alamat" />
+                </div>
+                <div class="profile-field-group">
+                  <label for="nohp">No. HP</label>
+                  <input type="tel" id="nohp" />
+                </div>
+                <div class="profile-field-group">
+                  <label for="email">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    value="user@email.com"
+                    readonly
+                  />
+                </div>
+              </div>
+
+              <div class="profile-image-section">
+                <img src="placeholder_profile.jpg" alt="Foto Profil" />
+                <input type="file" id="foto-update" style="display: none" />
+                <label for="foto-update" class="btn update-small">Update</label>
+              </div>
+            </div>
+
+            <button type="submit" class="btn update-large">Update</button>
+          </form>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
