@@ -1,0 +1,1162 @@
+/* Atur ulang gaya dasar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* Ganti 'Arial, sans-serif' dengan font yang lebih mirip, misal 'Poppins' */
+  font-family: "Arial", sans-serif;
+}
+
+body {
+  background-color: #fff; /* Latar belakang putih */
+  color: #000;
+}
+
+/* --- Navigasi (Header) --- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 50px; /* Sesuaikan padding */
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Sedikit bayangan jika perlu */
+}
+
+/* Logo "VINIX7" */
+.logo-text {
+  font-size: 24px;
+  font-weight: bold;
+  /* Menggunakan gradasi warna mirip kuning dan biru/ungu pada gambar */
+  /* Warna ini mungkin perlu disesuaikan agar cocok 100% */
+  background: linear-gradient(90deg, #ffd700 0%, #00008b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Tautan Navigasi */
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  padding: 5px 0;
+}
+
+/* Tombol Masuk/Daftar */
+.auth-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  padding: 8px 20px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn.masuk {
+  /* Warna Biru Tua pada tombol "Masuk" */
+  background-color: #00008b;
+  color: #fff;
+}
+
+.btn.daftar {
+  /* Warna Kuning Terang pada tombol "Daftar" */
+  background-color: #ffff00;
+  color: #000;
+}
+
+/* --- Konten Utama (Hero Section) --- */
+.hero-section {
+  padding: 50px 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 80vh; /* Agar konten tidak terlalu ke atas */
+}
+
+.content-container {
+  width: 90%;
+  max-width: 800px;
+  /* Tambahkan margin-top untuk memberi ruang dari navbar */
+  margin-top: 30px;
+}
+
+.text-box-frame {
+  display: flex;
+  justify-content: flex-start; /* Konten dimulai dari kiri */
+  align-items: flex-start;
+  position: relative;
+  /* Atur lebar agar teks dan gambar memiliki ruang */
+  max-width: 100%;
+}
+
+/* Border Biru yang Mengelilingi Teks dan Gambar */
+.text-box-frame::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80%;
+  height: 100%;
+  border: 5px solid #0000ff; /* Border Biru */
+  z-index: 1; /* Di belakang konten utama (teks/gambar) */
+}
+
+.hero-text {
+  position: relative;
+  z-index: 2;
+  padding: 50px; /* Padding di dalam border, sesuaikan */
+  /* Membuat teks berada di sisi kiri frame */
+  max-width: 60%;
+}
+
+.hero-text h1 {
+  /* Font yang lebih besar dan tebal, mirip Serif/Times New Roman */
+  font-family: "Times New Roman", serif;
+  font-size: 40px; /* Sesuaikan ukuran font */
+  font-weight: 700;
+  margin-bottom: 10px;
+  line-height: 1.1;
+}
+
+.hero-text .subtitle {
+  /* Font yang lebih kecil dan diletakkan di bawah h1 */
+  font-family: "Times New Roman", serif;
+  font-size: 30px;
+  font-weight: normal;
+  margin: 0;
+}
+
+/* Menggeser baris kedua ke kanan agar terlihat sejajar dengan gambar orang */
+.hero-text .subtitle:last-child {
+  text-align: right;
+  padding-right: 15%; /* Sesuaikan nilai ini untuk menggeser ke kanan */
+}
+
+/* Gambar Orang */
+.person-image {
+  position: absolute;
+  right: -50px; /* Geser gambar ke kanan, bahkan keluar dari border biru */
+  bottom: -10px; /* Geser gambar ke bawah, bahkan keluar dari border biru */
+  width: 450px; /* Sesuaikan lebar gambar */
+  z-index: 3; /* Pastikan gambar berada di atas border dan teks */
+  overflow: hidden; /* Penting agar gambar tidak memanjang di luar container */
+}
+
+.person-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Aturan dasar responsif (Opsional, tapi disarankan) */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links,
+  .auth-buttons {
+    margin-top: 10px;
+    gap: 10px;
+  }
+
+  .hero-section {
+    padding: 20px;
+    min-height: auto;
+  }
+
+  .text-box-frame::before {
+    border-width: 3px;
+  }
+
+  .hero-text {
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .hero-text h1 {
+    font-size: 40px;
+  }
+
+  .hero-text .subtitle {
+    font-size: 20px;
+  }
+
+  .hero-text .subtitle:last-child {
+    padding-right: 0;
+    text-align: left;
+  }
+
+  .person-image {
+    position: static; /* Biarkan gambar mengalir normal */
+    width: 100%;
+    margin-top: 20px;
+    /* Hapus atau sesuaikan agar tata letak menjadi vertikal */
+  }
+}
+
+/* --- Tambahan Gaya untuk Halaman Tentang (.about-section) --- */
+
+.about-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh; /* Agar konten berada di tengah vertikal */
+  padding: 20px;
+}
+
+.about-content {
+  width: 90%;
+  max-width: 800px; /* Batasi lebar konten agar tidak terlalu lebar */
+  padding: 50px;
+  border: 5px solid #ffff00; /* Border Kuning */
+  background-color: #fff;
+  text-align: center; /* Teks di tengah */
+}
+
+.about-content p {
+  /* Font yang lebih besar dan tebal, mirip Serif/Times New Roman */
+  font-family: "Times New Roman", serif;
+  font-size: 30px; /* Sesuaikan ukuran font agar mirip dengan gambar */
+  line-height: 1.5; /* Spasi baris agar mudah dibaca */
+  margin: 0;
+  font-weight: 500; /* Sedikit tebal */
+  color: #000;
+}
+
+/* Penyesuaian responsif untuk konten tentang */
+@media (max-width: 768px) {
+  .about-content {
+    padding: 30px;
+  }
+  .about-content p {
+    font-size: 20px;
+  }
+}
+
+/* --- Tambahan Gaya untuk Halaman Kontak (.contact-section) --- */
+
+.contact-section {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Konten sedikit ke atas */
+  min-height: 80vh;
+  padding: 50px 20px;
+}
+
+.contact-content {
+  width: 90%;
+  max-width: 800px; /* Batasi lebar konten */
+  padding: 50px;
+  border: 5px solid #8a2be2; /* Border Ungu */
+  background-color: #fff;
+}
+
+.contact-list {
+  list-style: none; /* Hapus bullet default */
+  padding: 0;
+  margin: 0;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px; /* Jarak antar item */
+  font-family: "Times New Roman", serif;
+  font-size: 28px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.contact-icon {
+  margin-right: 20px;
+  font-size: 35px; /* Ukuran icon */
+  color: #000; /* Warna icon default */
+  width: 35px; /* Lebar tetap untuk icon */
+  text-align: center;
+}
+
+/* Menggunakan kelas spesifik untuk warna ikon (Opsional, tapi lebih baik) */
+.icon-whatsapp {
+  color: #25d366; /* Hijau WhatsApp */
+}
+
+.icon-instagram {
+  /* Menggunakan gradien untuk meniru logo Instagram */
+  background: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Penyesuaian responsif untuk konten kontak */
+@media (max-width: 768px) {
+  .contact-content {
+    padding: 20px;
+  }
+  .contact-item {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  .contact-icon {
+    font-size: 30px;
+    margin-right: 15px;
+    width: 30px;
+  }
+}
+
+/* --- Tambahan Gaya untuk Halaman Masuk/Daftar (Form Pages) --- */
+
+.form-body {
+  background-color: #e0e0e0; /* Warna latar belakang abu-abu muda */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* Untuk menampung header dan konten utama */
+}
+
+/* Penyesuaian Header pada Halaman Form (Masuk/Daftar) */
+.form-header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 10px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Navigasi di Header (Khusus Halaman Form) */
+.form-nav-links {
+  display: flex;
+  gap: 10px;
+}
+
+/* Tombol Balik (Back Arrow) */
+.back-arrow {
+  position: absolute;
+  top: 100px; /* Jarak dari atas */
+  left: 50px;
+  font-size: 30px;
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* Container Formulir di Tengah */
+.form-container {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 500px;
+  margin-top: 50px; /* Jarak dari header tetap */
+}
+
+.form-container h2 {
+  /* Font yang lebih besar dan tebal, mirip Serif/Times New Roman atau Bold Sans */
+  font-family: "Times New Roman", serif;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+/* Gaya Input Field */
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 15px; /* Untuk layout 2 kolom seperti di Daftar */
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.form-input:focus {
+  border-color: #0000ff;
+}
+
+/* Tombol Utama (Masuk/Daftar) */
+.btn-form-main {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: opacity 0.3s;
+}
+
+.btn-form-main.masuk {
+  background-color: #0000ff; /* Biru terang untuk tombol Masuk */
+  color: #fff;
+}
+
+.btn-form-main.daftar {
+  background-color: #ffff00; /* Kuning terang untuk tombol Daftar */
+  color: #000;
+}
+
+/* Teks 'atau' */
+.form-text-divider {
+  text-align: center;
+  margin: 15px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+/* Teks ajakan daftar/masuk */
+.form-footer-link {
+  text-align: center;
+  font-size: 14px;
+}
+
+.form-footer-link a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #0000ff; /* Teks Daftar/Masuk di bawah formulir */
+}
+
+/* Penyesuaian Responsif untuk Form */
+@media (max-width: 600px) {
+  .form-header {
+    padding: 10px 20px;
+  }
+  .back-arrow {
+    left: 20px;
+  }
+  .form-container {
+    max-width: 95%;
+    padding: 30px 20px;
+  }
+  .form-group {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+/* --- Tambahan Gaya untuk Halaman Dashboard --- */
+
+/* --- Pengaturan Dasar untuk Dashboard --- */
+.dashboard-body {
+  background-color: #f7f7f7; /* Latar belakang abu-abu muda */
+  color: #333;
+  overflow-x: hidden;
+}
+
+.dashboard-layout {
+  display: flex;
+  min-height: 100vh;
+  padding-top: 60px; /* Ruang untuk header fixed */
+}
+
+/* --- Header Dashboard --- */
+.dashboard-header {
+  width: 100%;
+  height: 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 10px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  z-index: 100;
+}
+
+.header-icons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header-icons .icon-btn {
+  font-size: 20px;
+  color: #555;
+  cursor: pointer;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.user-profile .profile-icon {
+  font-size: 24px;
+  color: #555;
+}
+
+/* --- Sidebar Navigasi Vertikal --- */
+.sidebar {
+  width: 250px;
+  background-color: #fff;
+  padding-top: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+  position: fixed;
+  height: 100%;
+  z-index: 50;
+  left: 0;
+  top: 60px;
+}
+
+.sidebar-nav {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  padding: 15px 30px;
+  margin-bottom: 5px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.sidebar-item:hover,
+.sidebar-item.active {
+  background-color: #f0f0f0;
+}
+
+.sidebar-item i {
+  margin-right: 15px;
+  font-size: 20px;
+}
+
+/* --- Konten Utama & Card Kursus (Ringkas) --- */
+.main-content {
+  margin-left: 250px;
+  flex-grow: 1;
+  padding: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start;
+  position: relative;
+  z-index: 1; /* Di bawah header/sidebar */
+}
+
+.course-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 15px; /* Padding Ringkas */
+
+  width: 280px; /* LEBAR RINGKAS */
+  height: 150px; /* TINGGI TERBATAS */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.course-card h3 {
+  font-size: 20px;
+  font-weight: 900;
+  margin-bottom: 5px;
+  line-height: 1.2;
+}
+
+.course-card p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+/* Progress Bar */
+.progress-container {
+  margin-top: 10px;
+}
+
+.progress-bar-base {
+  height: 10px;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: #008000; /* Hijau solid */
+  text-align: right;
+  line-height: 10px;
+  color: white;
+  font-size: 10px;
+  padding-right: 5px;
+}
+
+/* --- Responsif (Ringkasan) --- */
+@media (max-width: 900px) {
+  .sidebar {
+    width: 80px;
+  }
+  .sidebar-item span {
+    display: none;
+  }
+  .main-content {
+    margin-left: 80px;
+    justify-content: center;
+  }
+  .course-card {
+    width: 45%;
+    min-width: 250px;
+  }
+}
+
+@media (max-width: 600px) {
+  .dashboard-layout {
+    flex-direction: column;
+    padding-top: 70px;
+  }
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: static;
+  }
+  .sidebar-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  .sidebar-item {
+    width: 25%;
+    flex-direction: column;
+    font-size: 12px;
+  }
+  .sidebar-item span {
+    display: block;
+    margin-top: 5px;
+  }
+  .sidebar-item i {
+    margin-right: 0;
+  }
+  .main-content {
+    margin-left: 0;
+  }
+  .course-card {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+/* --- Tambahan Gaya untuk Halaman Kelas dan Add Class --- */
+
+/* Pengaturan Tampilan Kartu Kelas yang Sudah Diikuti (Sama dengan Dashboard) */
+/* .course-card h3, .progress-bar-fill, dll. sudah didefinisikan di CSS Dashboard */
+
+/* Gaya untuk Kartu "Add New Class" */
+.add-class-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+  width: 280px;
+  height: 150px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-decoration: none; /* Penting jika menggunakan <a> tag */
+  color: inherit;
+}
+
+.add-class-icon {
+  font-size: 60px;
+  color: #0000ff; /* Warna Biru */
+  margin-bottom: 5px;
+}
+
+.add-class-text {
+  font-size: 16px;
+  font-weight: bold;
+  color: #0000ff;
+}
+
+/* --- Gaya untuk Kartu Pembelian Kelas (Add Class) --- */
+.purchase-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 280px;
+  height: auto; /* Biarkan tinggi menyesuaikan konten */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.purchase-card h3 {
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.purchase-card .benefit-list {
+  list-style-type: disc;
+  padding-left: 20px;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.purchase-card .price {
+  font-size: 24px;
+  font-weight: 900;
+  margin-bottom: 15px;
+}
+
+/* Tombol Daftar Kuning */
+.btn.daftar-kelas {
+  background-color: #ffff00; /* Kuning Terang */
+  color: #000;
+  font-weight: 900;
+  padding: 10px;
+  border: none;
+  width: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+/* --- Gaya Pop-up Modal (Konfirmasi Pembayaran) --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Latar belakang gelap transparan */
+  display: none; /* Default tersembunyi */
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  position: relative;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  color: #555;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.modal-content h4 {
+  font-size: 18px;
+  font-weight: normal;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.modal-content .class-name {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.modal-content .modal-price {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+.btn.payment {
+  background-color: #008000; /* Hijau */
+  color: #fff;
+  font-weight: 900;
+  padding: 12px;
+  border: none;
+  width: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* --- Tambahan Gaya untuk Halaman Materi (.material-card) --- */
+/* Kartu Materi Ringkas */
+.material-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+  /* LEBAR RINGKAS: Lebih kecil dari kartu kursus (280px) */
+  width: 250px;
+  height: 250px;
+
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  /* Tambahkan margin-bottom jika kartu terlalu rapat saat responsive */
+  margin-bottom: 20px;
+}
+
+/* Thumbnail Video */
+.video-thumbnail-container {
+  position: relative;
+  width: 100%;
+  /* Rasio aspek video (misal 16:9) */
+  padding-bottom: 56.25%;
+  background-color: #000;
+  cursor: pointer;
+  overflow: hidden; /* Pastikan gambar tidak keluar dari container */
+}
+
+/* Gambar Thumbnail */
+.video-thumbnail-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+}
+
+/* Tombol Play Icon */
+.play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+  color: #fff;
+  opacity: 0.9;
+}
+
+/* Detail di bawah Thumbnail */
+.material-details {
+  padding: 10px 15px; /* Padding lebih kecil */
+  display: flex;
+  flex-direction: column;
+  /* Tinggi minimum untuk memastikan semua kartu memiliki tinggi detail yang seragam */
+  min-height: 85px;
+  justify-content: space-between;
+}
+
+.material-details h3 {
+  font-size: 16px; /* Font lebih kecil */
+  font-weight: bold;
+  margin-bottom: 5px;
+  line-height: 1.3;
+}
+
+/* Link Task */
+.task-link {
+  font-size: 14px; /* Font lebih kecil */
+  font-weight: bold;
+  color: #0000ff;
+  text-decoration: none;
+  margin-top: 5px;
+}
+
+/* Penyesuaian responsif */
+@media (max-width: 900px) {
+  .material-card {
+    width: 45%;
+    min-width: 200px;
+  }
+}
+
+@media (max-width: 600px) {
+  .material-card {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+/* --- Tambahan Gaya untuk Halaman Penilaian (.assessment-card) --- */
+
+.assessment-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+  /* LEBAR RINGKAS: Sama dengan kartu materi (250px) */
+  width: 250px;
+  height: 250px;
+
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  margin-bottom: 20px;
+  min-height: 180px; /* Tambah tinggi agar tombol upload ada ruang */
+}
+
+.assessment-card h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+/* Link Soal */
+.question-link {
+  font-size: 16px;
+  font-weight: bold;
+  color: #ff0000; /* Warna Merah */
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.question-link i {
+  margin-right: 8px;
+  font-size: 20px;
+}
+
+/* Tombol Upload */
+.btn-upload-wrapper {
+  width: 100%;
+  margin-top: auto; /* Memastikan tombol berada di bawah */
+}
+
+.btn-upload {
+  background-color: #008000; /* Warna Hijau Solid */
+  color: #fff;
+  font-weight: bold;
+  padding: 10px;
+  border: none;
+  width: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  text-align: center;
+  display: block; /* Agar memakan lebar penuh */
+}
+
+/* Responsif (Menggunakan aturan dari halaman Materi sebelumnya) */
+@media (max-width: 900px) {
+  .assessment-card {
+    width: 45%;
+    min-width: 200px;
+  }
+}
+
+@media (max-width: 600px) {
+  .assessment-card {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+/* --- Tambahan Gaya untuk Dropdown Profil --- */
+
+.header-icons {
+  position: relative; /* Penting untuk menempatkan dropdown relatif terhadap ikon */
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.profile-dropdown-container {
+  position: relative;
+  cursor: pointer;
+  /* Ganti warna ikon jika perlu */
+}
+
+.profile-dropdown-content {
+  display: none; /* Default tersembunyi */
+  position: absolute;
+  top: 100%; /* Tepat di bawah ikon */
+  right: 0;
+  background-color: #fff;
+  min-width: 150px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  margin-top: 10px;
+  z-index: 150; /* Di atas elemen lain */
+}
+
+.profile-dropdown-content a {
+  color: #000;
+  padding: 10px 15px;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
+  white-space: nowrap; /* Mencegah teks terpotong */
+}
+
+.profile-dropdown-content a:hover {
+  background-color: #f0f0f0;
+}
+
+/* --- Tambahan Gaya untuk Halaman Data Diri (Profile 2) --- */
+
+.profile-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 90%;
+  max-width: 750px; /* Lebar untuk konten Data Diri */
+  margin: 30px auto 0;
+}
+
+.profile-card h2 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.profile-form-layout {
+  display: flex;
+  gap: 40px;
+}
+
+.profile-form-fields {
+  flex-grow: 1;
+}
+
+.profile-field-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.profile-field-group label {
+  width: 120px; /* Lebar label tetap */
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.profile-field-group input {
+  flex-grow: 1;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.profile-image-section {
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-image-section img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+/* Tombol Update Kecil di bawah gambar */
+.btn.update-small {
+  background-color: #008000; /* Hijau */
+  color: #fff;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  width: 100%;
+}
+
+/* Tombol Update Besar di bawah form */
+.btn.update-large {
+  background-color: #008000;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 30px;
+  width: 100%;
+  max-width: 200px;
+  display: block;
+  margin-left: auto; /* Posisikan ke kanan */
+}
+
+/* Responsif untuk Halaman Profile */
+@media (max-width: 768px) {
+  .profile-card {
+    max-width: 95%;
+    padding: 20px;
+  }
+  .profile-form-layout {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .profile-field-group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .profile-field-group label {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+  .profile-image-section {
+    width: 100%;
+  }
+  .profile-image-section img {
+    width: 100px;
+    height: 100px;
+  }
+  .btn.update-large {
+    margin-left: 0;
+  }
+}

@@ -2,109 +2,124 @@
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
-    <title>Dashboard - Vinix7</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vinix7 - Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
+
+    <style>
+      /* Gaya spesifik untuk meniru font yang digunakan di kartu (Bold Sans Serif) */
+      .course-card h3 {
+        font-family: Arial, sans-serif;
+        font-weight: 900;
+      }
+    </style>
+    <script>
+      function toggleDropdown() {
+        document.getElementById("profileDropdown").style.display =
+          document.getElementById("profileDropdown").style.display === "block"
+            ? "none"
+            : "block";
+      }
+
+      // Menutup dropdown jika user mengklik di luar area
+      window.onclick = function (event) {
+        if (
+          !event.target.matches(".profile-dropdown-container") &&
+          !event.target.matches(".user-profile") &&
+          !event.target.matches(".user-profile *")
+        ) {
+          var dropdowns = document.getElementsByClassName(
+            "profile-dropdown-content"
+          );
+          for (var i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.style.display === "block") {
+              openDropdown.style.display = "none";
+            }
+          }
+        }
+      };
+    </script>
   </head>
-  <body>
-    <header class="navbar">
-      <div class="logo">
-        <img
-          src="gambar/logovinix7.png"
-          alt=""
-          style="width: 200px; margin-top: 10px"
-        />
+  <body class="dashboard-body">
+    <header class="dashboard-header">
+      <div class="logo-container">
+        <span class="logo-text">VINIX7</span>
       </div>
-      <div class="actions content-header">
-        <i class="fas fa-bell icon-profile"></i>
-        <span class="username">Username</span>
-        <i class="fas fa-user-circle icon-profile" id="profile-icon"></i>
+      <div class="header-icons">
+        <i class="fas fa-bell icon-btn"></i>
+
+        <div class="profile-dropdown-container" onclick="toggleDropdown()">
+          <div class="user-profile">
+            <span>Username</span>
+            <i class="fas fa-user-circle profile-icon"></i>
+          </div>
+
+          <div id="profileDropdown" class="profile-dropdown-content">
+            <a href="profile.html">My Profile</a>
+            <a href="masuk.html">Logout</a>
+          </div>
+        </div>
       </div>
     </header>
 
-    <div class="profile-dropdown" id="profile-dropdown">
-      <a href="profile.html">My Profile</a>
-      <a href="masuk.html">Logout</a>
-    </div>
-
     <div class="dashboard-layout">
       <aside class="sidebar">
-        <ul>
-          <li class="active">
-            <a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a>
+        <ul class="sidebar-nav">
+          <li>
+            <a href="dashboard.html" class="sidebar-item active">
+              <i class="fas fa-home"></i>
+              <span>Dashboard</span>
+            </a>
           </li>
           <li>
-            <a href="kelas.html"><i class="fas fa-list"></i> Kelas</a>
+            <a href="kelas.html" class="sidebar-item">
+              <i class="fas fa-list-ul"></i>
+              <span>Kelas</span>
+            </a>
           </li>
           <li>
-            <a href="materi.html"><i class="fas fa-book"></i> Materi</a>
+            <a href="materi.html" class="sidebar-item">
+              <i class="fas fa-book-open"></i>
+              <span>Materi</span>
+            </a>
           </li>
           <li>
-            <a href="penilaian.html"
-              ><i class="fas fa-receipt"></i> Penilaian</a
-            >
-          </li>
-          <li>
-            <a href="profile.html"
-              ><i class="fas fa-user-circle"></i> Profile</a
-            >
+            <a href="penialain.html" class="sidebar-item">
+              <i class="fas fa-pencil-alt"></i>
+              <span>Penilaian</span>
+            </a>
           </li>
         </ul>
       </aside>
 
-      <main class="content-area">
-        <div id="content-display">
-          <div class="course-grid">
-            <div class="course-card">
-              <div class="card-image-wrapper"></div>
-              <h3>Web Dev & UI/UX</h3>
-              <p>Nama Mentor</p>
-              <div class="progress-bar-container">
-                <div class="progress-bar" style="width: 70%">
-                  <span style="color: white; font-size: 10px; margin-left: 5px"
-                    >70%</span
-                  >
-                </div>
-              </div>
-            </div>
+      <main class="main-content">
+        <div class="course-card">
+          <h3>Web Dev & UI/UX</h3>
+          <p>Nama Mentor</p>
 
-            <div class="course-card">
-              <div class="card-image-wrapper"></div>
-              <h3>Data Analyst</h3>
-              <p>Nama Mentor</p>
-              <div class="progress-bar-container">
-                <div class="progress-bar" style="width: 100%">
-                  <span style="color: white; font-size: 10px; margin-left: 5px"
-                    >100%</span
-                  >
-                </div>
-              </div>
+          <div class="progress-container">
+            <div class="progress-bar-base">
+              <div class="progress-bar-fill" style="width: 70%">70%</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <h3>Data Analyst</h3>
+          <p>Nama Mentor</p>
+
+          <div class="progress-container">
+            <div class="progress-bar-base">
+              <div class="progress-bar-fill" style="width: 100%">100%</div>
             </div>
           </div>
         </div>
       </main>
     </div>
-
-    <script>
-      // --- JAVASCRIPT UNTUK TOGGLE PROFILE DROPDOWN ---
-      document.getElementById("profile-icon").onclick = function () {
-        const dropdown = document.getElementById("profile-dropdown");
-        dropdown.style.display =
-          dropdown.style.display === "block" ? "none" : "block";
-      };
-
-      // Menutup dropdown jika user klik di luar
-      window.onclick = function (event) {
-        if (!event.target.matches("#profile-icon")) {
-          const dropdown = document.getElementById("profile-dropdown");
-          if (dropdown.style.display === "block") {
-            dropdown.style.display = "none";
-          }
-        }
-      };
-    </script>
   </body>
 </html>

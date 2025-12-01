@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vinix7 - Tambah Kelas</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <script>
+      function toggleDropdown() {
+        document.getElementById("profileDropdown").style.display =
+          document.getElementById("profileDropdown").style.display === "block"
+            ? "none"
+            : "block";
+      }
+
+      // Menutup dropdown jika user mengklik di luar area
+      window.onclick = function (event) {
+        if (
+          !event.target.matches(".profile-dropdown-container") &&
+          !event.target.matches(".user-profile") &&
+          !event.target.matches(".user-profile *")
+        ) {
+          var dropdowns = document.getElementsByClassName(
+            "profile-dropdown-content"
+          );
+          for (var i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.style.display === "block") {
+              openDropdown.style.display = "none";
+            }
+          }
+        }
+      };
+    </script>
+  </head>
+  <body class="dashboard-body">
+    <header class="dashboard-header">
+      <div class="logo-container">
+        <span class="logo-text">VINIX7</span>
+      </div>
+      <div class="header-icons">
+        <i class="fas fa-bell icon-btn"></i>
+        <div class="user-profile">
+          <span>Username</span>
+          <i class="fas fa-user-circle profile-icon"></i>
+        </div>
+      </div>
+    </header>
+
+    <div class="dashboard-layout">
+      <aside class="sidebar">
+        <ul class="sidebar-nav">
+          <li>
+            <a href="dashboard.html" class="sidebar-item"
+              ><i class="fas fa-home"></i><span>Dashboard</span></a
+            >
+          </li>
+          <li>
+            <a href="kelas.html" class="sidebar-item active"
+              ><i class="fas fa-list-ul"></i><span>Kelas</span></a
+            >
+          </li>
+          <li>
+            <a href="materi.html" class="sidebar-item"
+              ><i class="fas fa-book-open"></i><span>Materi</span></a
+            >
+          </li>
+          <li>
+            <a href="penialain.html" class="sidebar-item"
+              ><i class="fas fa-pencil-alt"></i><span>Penilaian</span></a
+            >
+          </li>
+        </ul>
+      </aside>
+
+      <main class="main-content">
+        <div class="purchase-card">
+          <h3>Enterprenuer & Bisnis Digital</h3>
+          <ul class="benefit-list">
+            <li>Materi</li>
+            <li>Mini Project</li>
+            <li>Sertifikat</li>
+          </ul>
+          <p class="price">Rp 300.000</p>
+          <button
+            class="btn daftar-kelas"
+            onclick="openModal('Enterprenuer & Bisnis Digital', '300.000')"
+          >
+            Daftar
+          </button>
+        </div>
+
+        <div class="purchase-card">
+          <h3>Cyber Security</h3>
+          <ul class="benefit-list">
+            <li>Materi</li>
+            <li>Mini Project</li>
+            <li>Sertifikat</li>
+          </ul>
+          <p class="price">Rp 700.000</p>
+          <button
+            class="btn daftar-kelas"
+            onclick="openModal('Cyber Security', '700.000')"
+          >
+            Daftar
+          </button>
+        </div>
+
+        <div class="purchase-card">
+          <h3>Artificial Intelligence</h3>
+          <ul class="benefit-list">
+            <li>Materi</li>
+            <li>Mini Project</li>
+            <li>Sertifikat</li>
+          </ul>
+          <p class="price">Rp 900.000</p>
+          <button
+            class="btn daftar-kelas"
+            onclick="openModal('Artificial Intelligence', '900.000')"
+          >
+            Daftar
+          </button>
+        </div>
+
+        <div class="purchase-card">
+          <h3>Full Stack Dev</h3>
+          <ul class="benefit-list">
+            <li>Materi</li>
+            <li>Mini Project</li>
+            <li>Sertifikat</li>
+          </ul>
+          <p class="price">Rp 370.000</p>
+          <button
+            class="btn daftar-kelas"
+            onclick="openModal('Full Stack Dev', '370.000')"
+          >
+            Daftar
+          </button>
+        </div>
+      </main>
+    </div>
+
+    <div id="paymentModal" class="modal-overlay">
+      <div class="modal-content">
+        <button class="modal-close-btn" onclick="closeModal()">
+          <i class="fas fa-times"></i>
+        </button>
+        <h4>Apakah Kamu Yakin Ingin Mengikuti Kelas Ini?</h4>
+        <p id="modalClassName" class="class-name"></p>
+        <p class="modal-price">
+          Seharga <br />
+          Rp <span id="modalPriceValue"></span>
+        </p>
+        <button class="btn payment">Payment</button>
+      </div>
+    </div>
+
+    <script>
+      function openModal(className, price) {
+        document.getElementById("modalClassName").innerText = className;
+        document.getElementById("modalPriceValue").innerText = price;
+        document.getElementById("paymentModal").style.display = "flex";
+      }
+
+      function closeModal() {
+        document.getElementById("paymentModal").style.display = "none";
+      }
+    </script>
+  </body>
+</html>
